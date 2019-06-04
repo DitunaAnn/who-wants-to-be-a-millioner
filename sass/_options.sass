@@ -1,0 +1,75 @@
+// ============================
+// MAIN COLORS
+// ============================
+
+$mainC1: #3ac6ea //light-green
+$mainC2: #131920 //gray
+$mainC3: #fff //white
+
+// ============================
+// MEDIA
+// ============================
+
+$mediaBp: (940px, 767px, 640px, 480px, 320px)
+
+// ============================
+// FUNCTIONS
+// ============================
+
+@function col-width($n)
+	@if $n == auto
+		@return auto
+	@else
+		@return calc(100% / #{$n}) 
+
+// ============================
+// MIXINS
+// ============================
+
+@mixin flex ($d: flex, $jc: flex-start, $fw: nowrap, $ai: stretch, $fd: row)
+	display: $d
+	flex-flow: $fd $fw
+	justify-content: $jc
+	align-items: $ai
+
+
+@mixin grid ($s: 15px, $w: nowrap, $c: auto)
+	&-grid
+		@include flex($fw: $w)
+		margin: -#{$s}
+		&__col
+			width: col-width($c) 
+			padding: $s
+
+@mixin grid2 ($d: grid, $c: 1, $r: auto, $g: 15px, $ji: stretch, $ai: stretch, $jc: start, $ac: start)
+	// d - display             | отображение в полоке                   | grid
+	// c - columns             | количество колонок                     | repeat(1, 1fr)
+	// r - rows                | параметр линий                         | auto
+	// g - gap                 | отступы между ячейками                 | 15px
+	// ji - justify-items      | выравнивание контента по горизонтали   | stretch
+	// ai - align-items        | выравнивание контента по вертикали     | stretch
+	// jc - justify-content    | выравнивание ячеек по горизонтали      | start
+	// ac - align-content      | выравнивание ячеек по вертикали        | start
+
+	display: $d
+
+	// если $c == number, то будет выстроенное указанное количество колонок с равным размером | 3 => repeat(3, 1fr)
+	// если $c == list, подразумевается использование минимальной и максимальной ширины колонки | auto-fill 200px 1fr => repeat(auto-fill, 200px, 1fr)
+	//      1. количество повторений или auto-fill
+	//      2. минимальная ширина
+	//      3. максимальная ширина
+	// если $c == string, то будет подставлено указанное значение без кавычек | '1fr 200px 1fr' => 1fr 200px 1fr
+
+	@if (type-of($c) == number)
+		grid-template-columns: repeat($c, 1fr)
+	@else if (type-of($c) == list)
+		grid-template-columns: repeat(nth($c, 1), minmax(nth($c, 2), nth($c, 3)))
+	@else if (type-of($c) == string)
+		grid-template-columns: unquote($c)
+
+	grid-template-rows: $r
+	grid-gap: $g
+	justify-items: $ji
+	align-items: $ai
+	justify-content: $jc
+	align-content: $ac

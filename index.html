@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>Million</title>
+	<script src="js/jquery.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="block loader-none">
+		<div class="cssload-loader"></div>
+	</div>
+
+	<div class="question-block">
+		<div class="container">
+			<div class="question-grid">
+				
+				<div class="block-1">
+					<div class="block-3">
+						<div class="box-help">
+							<div class="help help-chance">
+								<i class="fas fa-users"></i>
+								<div class="help-hint">
+									<h4>&#171;Право на ошибку&#187;</h4>
+									<p>Вы продолжаете игру в случае неверного ответа</p>
+								</div>
+							</div>
+							<div class="help fifty-fifty">
+								<i class="fas fa-balance-scale"></i>
+								<div class="help-hint">
+									<h4>&#171;50/50&#187;</h4>
+									<p>Компьютер убирает два неправильных ответа</p>
+								</div>
+							</div>
+							<div class="help call">
+								<div class="call-answer"></div>
+								<i class="fas fa-phone-volume"></i>
+								<div class="help-hint">
+									<h4>&#171;Звонок другу&#187;</h4>
+									<p>Вы можете посоветоваться с другом по телефону</p>
+								</div>
+							</div>
+							<div class="help double-chance">
+								<i class="fas fa-dice-two"></i>
+								<div class="help-hint">
+									<h4>&#171;Один вопрос, два ответа&#187;</h4>
+									<p>Выберите два варианта ответа!</p>
+								</div>
+							</div>
+							<div class="help next-question">
+								<i class="fas fa-angle-double-right"></i>
+								<div class="help-hint">
+									<h4>&#171;NEXT&#187;</h4>
+									<p>Не знаете ответ? Выберете следующий вопрос!</p>
+								</div>
+							</div>
+							
+							
+						</div>
+					</div>
+					<div class="block-4">
+						<div class="box-finish">
+							<div class="clock-counter"></div>
+							<a href="#" class="finish">Exit</a>
+						</div>
+					</div>
+					<div class="questions">
+						<div class="question">question</div>
+					</div>
+					<div class="answers">
+						<div class="answer">answer</div>
+						<div class="answer">answer</div>
+						<div class="answer">answer</div>
+						<div class="answer">answer</div>
+					</div>
+				</div>
+				<div class="block-2">
+					<div class="box-6">
+						<ol class="levels">
+							<li class="level">
+								<p>1.</p>
+								<p>100</p>
+							</li>
+							<li class="level">
+								<p>2.</p>
+								<p>200</p>
+							</li>
+							<li class="level">
+								<p>3.</p>
+								<p>300</p>
+							</li>
+							<li class="level">
+								<p>4.</p>
+								<p>500</p>
+							</li>
+							<li class="level">
+								<p>5.</p>
+								<p>1000</p>
+							</li>
+							<li class="level">
+								<p>6.</p>
+								<p>2000</p>
+							</li>
+							<li class="level">
+								<p>7.</p>
+								<p>4000</p>
+							</li>
+							<li class="level">
+								<p>8.</p>
+								<p>8000</p>
+							</li>
+							<li class="level">
+								<p>9.</p>
+								<p>16000</p>
+							</li>
+							<li class="level">
+								<p>10.</p>
+								<p>32000</p>
+							</li>
+							<li class="level">
+								<p>11.</p>
+								<p>64000</p>
+							</li>
+							<li class="level">
+								<p>12.</p>
+								<p>125000</p>
+							</li>
+							<li class="level">
+								<p>13.</p>
+								<p>250000</p>
+							</li>
+							<li class="level">
+								<p>14.</p>
+								<p>500000</p>
+							</li>
+							<li class="level">
+								<p>15.</p>
+								<p>1000000</p>
+							</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- <div class="modal" id="modal">
+		<a href="#" class="modal-btn start">Play</a>
+	</div>
+	<div class="modal-overlay" id="modal-overlay"></div>
+ -->
+	<div id="bg_popup">
+		<div id="popup">
+			<a href="#" class="modal-btn start close" onclick="document.getElementById('bg_popup').style.display='none'; return false;">Play</a>
+
+			<div class="list">
+				<div class="winners-list"></div>
+			</div>
+
+		</div>
+	</div>
+	
+	<div class="overlay">
+		<div class="overlay__rules rules">
+			<div class="rules__grid">
+				<div class="rules__info">
+					<h3 class="rules__title modal-title">Правила:</h3>
+					<ul class="rules__list-rules">
+						<li class="rules__item">Для того, чтобы выиграть и получить $1 000 000, необходимо правильно ответить на 15 вопросов из различных областей знаний.</li>
+						<li class="rules__item">Каждый вопрос имеет 4 варианта ответа, из которых только один является верным.</li>
+						<li class="rules__item">На каждый вопрос отводится по 30 секунд.</li>
+						<li class="rules__item">Каждый вопрос имеет конкретную стоимость.</li>
+						<li class="rules__item">Каждый пятый вопрос Вы получаете "несгораеммую сумму", это то, что можно забрать при поражении</li>
+						<li class="rules__item">В любой момент Вы можете забрать то, что сейчас имеете, с помощью кнопки <b>&#171;Exit&#187;</b></li>
+					</ul>
+				</div>
+				<div class="rules__help">
+					<h3 class="rules__title modal-title">Подсказки:</h3>
+					<div class="rules__list-help">
+						<i class="rules__icon fas fa-balance-scale"></i>
+						<div class="rules__descr">
+							<h4>&#171;50/50&#187;</h4>
+							<p>Компьютер убирает два неправильных ответа</p>
+						</div>
+						<i class="rules__icon fas fa-phone-volume"></i>
+						<div class="rules__descr">
+							<h4>&#171;Звонок другу&#187;</h4>
+							<p>Вы можете посоветоваться с другом по телефону</p>
+						</div>
+						<i class="rules__icon fas fa-users"></i>
+						<div class="rules__descr">
+							<h4>&#171;Право на ошибку&#187;</h4>
+							<p>Вы продолжаете игру в случае неверного ответа</p>
+						</div>
+						<i class="rules__icon fas fa-dice-two"></i>
+						<div class="rules__descr">
+							<h4>&#171;Один вопрос, два ответа&#187;</h4>
+							<p>Выберите два варианта ответа!</p>
+						</div>
+						<i class="rules__icon fas fa-angle-double-right"></i>
+						<div class="rules__descr">
+							<h4>&#171;NEXT&#187;</h4>
+							<p>Не знаете ответ? Выберете следующий вопрос!</p>
+						</div>
+					</div>	
+				</div>
+				<button class="rules__btn btn">Начать игру!</button>
+			</div>
+		</div>
+		<div class="overlay__exit exit">
+			<div class="exit__info">
+				<div class="exit__icon modal-icon"></div>
+				<p class="exit__p1 modal-text">Generated text</p>
+				<p class="exit__p2 modal-text">Generated text</p>
+				<p class="exit__p3 modal-text">Generated text</p>
+			</div>
+			<div class="exit__btns">
+				<button class="exit__btns_yes btn">Да</button>
+				<button class="exit__btns_no btn"">Нет</button>
+			</div>
+		</div>
+		<div class="overlay__loss loss">
+			<div class="loss__info">
+				<div class="loss__icon modal-icon"></div>
+				<p class="loss__p1 modal-text">Generated text</p>
+				<p class="loss__p2 modal-text">Generated text</p>
+				<p class="loss__p3 modal-text">Generated text</p>
+				<p class="loss__p4 modal-text">Generated text</p>
+			</div>
+			<button class="loss__btn btn">Хорошо!</button>
+		</div>
+		<div class="overlay__win win">
+			<div class="win__icon modal-icon"></div>
+			<p class="win__p1 modal-text">Generated text</p>
+			<button class="win__btn btn">Вступить в клуб миллионеров!</button>
+		</div>
+	</div>
+
+	<script src="js/data.json"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
